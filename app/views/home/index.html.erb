@@ -1,5 +1,6 @@
 <% if current_user %>
-    <h1>Welcome to the E-Store <%= current_user.email %></h1>       
+    <h1>Welcome to the E-Store <%= current_user.email %></h1>     
+    <h2>Visit our <%= link_to 'Brands', brands_path %></h2>  
 <% else %>
     <h1>Welcome to the E-Store! <%= link_to 'Register Today', new_user_registration_path %> </h1>    
 <% end %>

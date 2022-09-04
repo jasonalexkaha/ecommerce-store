@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   before_action :set_brand, only: %i[ show edit update destroy ]
+  before_action :is_admin?, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /brands or /brands.json
   def index
@@ -65,6 +66,6 @@ class BrandsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def brand_params
-      params.fetch(:brand, {})
+      params.require(:brand).permit(:name, :image)
     end
 end

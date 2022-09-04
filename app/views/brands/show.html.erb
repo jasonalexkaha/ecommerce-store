@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_brand_path(@brand) %>
+<% end %> 
 <%= link_to 'Back', brands_path %>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @brand.name %>
+  <div style="width: 400px; height: auto;">
+    <%= image_tag(@brand.image, style:"width:100%") %>
+  </div>  
+</p>
+
+<%# <% @brands.items.each do |brand| %>

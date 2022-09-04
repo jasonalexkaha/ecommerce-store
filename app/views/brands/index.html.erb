@@ -1,10 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Brands</h1>
+<h1>Our Brands</h1>
+<% if current_user.admin? %>
+<%= link_to 'New Brand', new_brand_path %>
+<% end %>
 
 <table>
   <thead>
-    <tr>
+    <tr>      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,14 +15,16 @@
   <tbody>
     <% @brands.each do |brand| %>
       <tr>
-        <td><%= link_to 'Show', brand %></td>
-        <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
-        <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= brand.name %></td>          
+        <td><%= link_to 'See More', brand %></td>
+        <% if current_user.admin? %>
+          <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
+          <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>  
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Brand', new_brand_path %>
