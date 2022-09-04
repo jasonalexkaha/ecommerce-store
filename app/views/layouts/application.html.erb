@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estore</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav style="display: flex; justify-content: space-between;">
+      <h1>E-Store</h1>
+      
+      
+      <% if user_signed_in? && current_user.admin? %>
+        <h4>Logged in as Admin</h4>
+      <% end %>
+
+      <div style="padding-top: 20px;"> 
+        <% if user_signed_in? %>  
+          <%= link_to 'Edit Profile', edit_user_registration_path %>
+          <%= link_to 'Signout',  destroy_user_session_path, method: :delete %>          
+        <% else %>
+          <%= link_to 'Register', new_user_registration_path %>            
+          <%= link_to 'Signin', new_user_session_path %> 
+        <% end %>
+        
+      </div>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
