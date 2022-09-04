@@ -13,4 +13,22 @@
   </div>  
 </p>
 
-<%# <% @brands.items.each do |brand| %>
+<%= render @brand.items %>
+
+<% if current_user.admin? %>
+
+<h1>Add New Items and Price:</h1>
+<%= form_for([@brand, @brand.items.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<% end %> 

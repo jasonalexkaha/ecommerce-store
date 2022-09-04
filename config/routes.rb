@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :brands
+  resources :brands do
+    resources :items
+  end
+  
   devise_for :users  
 
   get 'admin', to: "admin#index"
