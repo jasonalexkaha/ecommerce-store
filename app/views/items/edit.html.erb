@@ -1,0 +1,15 @@
+<h3>Edit Item:</h3>
+
+<%= form_for :item, url: brand_item_path(brand_id: @brand.id, id: @item.id), method: :patch do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

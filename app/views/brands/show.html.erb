@@ -1,34 +1,30 @@
 <p id="notice"><%= notice %></p>
-
-<% if current_user.admin? %>
-<%= link_to 'Edit', edit_brand_path(@brand) %>
-<% end %> 
-<%= link_to 'Back', brands_path %>
-
 <p>
   <strong>Brand:</strong>
   <%= @brand.name %>
+  <br>
+  <br>
+  <% if current_user.admin? %>
+    <%= link_to 'Edit Brand', edit_brand_path(@brand) %>
+    <%= link_to 'Add new items', new_brand_item_path(brand_id: @brand.id) %>  
+  <% end %> 
   <div style="width: 400px; height: auto;">
     <%= image_tag(@brand.image, style:"width:100%") %>
   </div>  
 </p>
 
-<%= render @brand.items %>
-
-<% if current_user.admin? %>
-
-<h1>Add New Items and Price:</h1>
-<%= form_for([@brand, @brand.items.build]) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<h4>Items</h4>
+<% @brand.items.each do |item| %>
+  <div style="display: flex;">
+    <p style="padding-right: 15px;"><%= link_to item.name, edit_brand_item_path(brand_id: @brand.id, id: item.id) %></p>
+    <p>$<%= item.price %></p>
+    <p style="pading-top: 15px; padding-left: 10px;">
+      <%= link_to 'Delete Item', brand_item_path(brand_id: @brand.id, id: item.id), method: :delete, data: { confirm: "Delete Item?" } %>
+    </p>
+    
+  </div>
 <% end %>
-<% end %> 
+
+<br>
+<br>
+<%= link_to 'Back', brands_path %>
