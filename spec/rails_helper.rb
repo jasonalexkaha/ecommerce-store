@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'devise'
 require_relative 'support/controller_macros'
+include ActionDispatch::TestProcess
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)

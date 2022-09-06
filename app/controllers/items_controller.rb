@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+    before_action :is_admin?, only: [:new, :edit, :create, :update, :destroy]
+
     def new
         @brand = Brand.find(params[:brand_id])
         @item = @brand.items.new
