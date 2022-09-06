@@ -16,14 +16,17 @@
 <h4>Items</h4>
 <% @brand.items.each do |item| %>
   <div style="display: flex;">
+  <% if current_user.admin? %>
     <p style="padding-right: 15px;"><%= link_to item.name, edit_brand_item_path(brand_id: @brand.id, id: item.id) %></p>
     <p>$<%= item.price %></p>
-    
-    <% if current_user.admin? %>
-      <p style="pading-top: 15px; padding-left: 10px;">
+    <p style="pading-top: 15px; padding-left: 10px;">
         <%= link_to 'Delete Item', brand_item_path(brand_id: @brand.id, id: item.id), method: :delete, data: { confirm: "Delete Item?" } %>
-      </p>
-    <% end %>    
+    </p>    
+  <% else %>    
+    <p style="padding-right: 10px;"><%= item.name %></p>
+    <p>$<%= item.price %></p>
+  <% end %>    
+    
   </div>
 <% end %>
 
