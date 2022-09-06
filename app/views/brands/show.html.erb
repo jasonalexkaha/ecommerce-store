@@ -18,10 +18,12 @@
   <div style="display: flex;">
     <p style="padding-right: 15px;"><%= link_to item.name, edit_brand_item_path(brand_id: @brand.id, id: item.id) %></p>
     <p>$<%= item.price %></p>
-    <p style="pading-top: 15px; padding-left: 10px;">
-      <%= link_to 'Delete Item', brand_item_path(brand_id: @brand.id, id: item.id), method: :delete, data: { confirm: "Delete Item?" } %>
-    </p>
     
+    <% if current_user.admin? %>
+      <p style="pading-top: 15px; padding-left: 10px;">
+        <%= link_to 'Delete Item', brand_item_path(brand_id: @brand.id, id: item.id), method: :delete, data: { confirm: "Delete Item?" } %>
+      </p>
+    <% end %>    
   </div>
 <% end %>
 
