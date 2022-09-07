@@ -27,11 +27,26 @@ RSpec.describe BrandsController, type: :controller do
     describe "GET /brands/new" do
         login_admin
 
-        context "from admin user" do
+        context "New Brand form request from admin user" do
             it "should return 200, ok" do
                 get :new
                 expect(response).to have_http_status(:success)
             end
         end
     end
+
+    # describe "POST /brands/new" do
+    #     login_admin
+
+    #     context "Creating brand request from admin user" do
+    #         @brand = FactoryBot.create(:brand)
+    #         puts @brand.name
+    #         puts @brand.image 
+
+    #         it "should return 200, ok" do   
+    #             post :create 
+    #             expect(response).to have_http_status(:success)
+    #         end
+    #     end
+    # end
 end

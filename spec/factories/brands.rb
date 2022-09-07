@@ -1,7 +1,9 @@
+require 'faker'
+
 FactoryBot.define do
     factory :brand do
-      name { "Test Brand" }      
-      image { fixture_file_upload 'spec/images/ace.jpg',  'application/jpeg' }
+      name { Faker::Name.unique.name }    
+      image {  Rack::Test::UploadedFile.new('spec/images/ace.jpg', 'image/jpeg')}  
     end
 end
   
