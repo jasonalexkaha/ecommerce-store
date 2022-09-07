@@ -4,5 +4,7 @@ Referencing: https://www.notion.so/fazzfinancialgroup/StraitsX-Onboarding-Jason-
 
 Things covered/learnt:
 
+* Login and register function with Devise gem (also did manually with sessions)
+* Multiple ActiveRecords w relationships
 * ActiveStorage for image uploads
 * Rspec with FactoryBot testing environment
