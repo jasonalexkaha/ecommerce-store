@@ -2,6 +2,8 @@
 
 Referencing: https://www.notion.so/fazzfinancialgroup/StraitsX-Onboarding-Jason-Alexander-Kaharudin-636686732a5749a4a65acd1dcea9603c#0f4c34e746144f13b64af21a63580bd9
 
+### To start: create admin manually on the console ``` rails c``` and set ```user.admin = true```
+
 Things covered/learnt:
 
 * Login and register function with Devise gem (also did manually with sessions)
