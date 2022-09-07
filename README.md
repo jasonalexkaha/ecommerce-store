@@ -1,24 +1,8 @@
-# README
+# ECommerce Store Ruby
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Referencing: https://www.notion.so/fazzfinancialgroup/StraitsX-Onboarding-Jason-Alexander-Kaharudin-636686732a5749a4a65acd1dcea9603c#0f4c34e746144f13b64af21a63580bd9
 
-Things you may want to cover:
+Things covered/learnt:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ActiveStorage for image uploads
+* Rspec with FactoryBot testing environment
